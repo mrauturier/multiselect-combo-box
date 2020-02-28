@@ -9,7 +9,7 @@
   <template>
     <div id="tokens" part="tokens" slot="prefix">
       <template is="dom-if" if="[[compactMode]]" restamp>
-        <div part="compact-mode-label">[[_getCompactModeDisplayValue(items, items.*)]]</div>
+        <div part="compact-mode-label">[[_getCustomCompactModeDisplayValue(items, items.*)]]</div>
       </template>
 
       <template is="dom-if" if="[[!compactMode]]" restamp>
@@ -110,6 +110,10 @@
 
         _resolvePlaceholder(compactMode, placeholder) {
           return compactMode ? '' : placeholder;
+        }
+
+        _getCustomCompactModeDisplayValue(items) {
+          return `${items.length} selected`;
         }
       }
 
